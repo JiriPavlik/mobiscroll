@@ -332,15 +332,14 @@
                 left = constrain(anchorLeft - (modalWidth - anchorWidth) / 2, scrollLeft + 8, scrollLeft + newWidth - modalWidth - 8);
 
                 // Vertical positioning
-                // Above the input
-                top = anchorTop - modalHeight - arrowHeight / 2;
-                // If doesn't fit above or the input is out of the screen
-                if ((top < scrollTop) || (anchorTop > scrollTop + newHeight)) {
+                // Below the input
+                top = anchorTop + anchorHeight + arrowHeight / 2;
+
+                if (anchorTop + arrowHeight + modalHeight < newHeight) {
                     $popup.removeClass('mbsc-fr-bubble-top').addClass('mbsc-fr-bubble-bottom');
-                    // Below the input
-                    top = anchorTop + anchorHeight + arrowHeight / 2;
                 } else {
                     $popup.removeClass('mbsc-fr-bubble-bottom').addClass('mbsc-fr-bubble-top');
+                    top = anchorTop - modalHeight - arrowHeight / 2;
                 }
 
                 // Set arrow position
