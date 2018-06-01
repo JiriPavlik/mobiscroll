@@ -326,7 +326,9 @@
                 anchorHeight = anchor[0].offsetHeight;
 
                 arrowWidth = arrow.offsetWidth;
-                arrowHeight = arrow.offsetHeight;
+                // set fixed arrow size to be compatible with rest of our application
+                // this was causing movement of scroller bubble
+                arrowHeight = 36;
 
                 // Horizontal positioning
                 left = constrain(anchorLeft - (modalWidth - anchorWidth) / 2, scrollLeft + 8, scrollLeft + newWidth - modalWidth - 8);
